@@ -7,8 +7,8 @@ To use:
 2. Set your form to use a custom ajax handler.
 3. Within that handler, have the following code, replacing "NORMAL EVENT HANDLER" in the response check with the regular action that should be executed on form submission.
 ```
-    $recaptcha_challenge_field = Phpr::$request->post('recaptcha_challenge_field');
-    $recaptcha_response_field = Phpr::$request->post('recaptcha_response_field');
+    $recaptcha_challenge_field = post('recaptcha_challenge_field');
+    $recaptcha_response_field = post('recaptcha_response_field');
     $user_ip = Phpr::$request->getUserIp();
 
     $recaptcha_response = ooRecaptcha_Module::verify_recaptcha($user_ip, $recaptcha_challenge_field, $recaptcha_response_field);
