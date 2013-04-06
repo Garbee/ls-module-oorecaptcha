@@ -13,7 +13,7 @@
                 {
                         require_once('vendor/recaptchalib.php');
                         $publickey = ooRecaptcha_Config::create()->public_key;
-                        echo recaptcha_get_html($publickey);
+                        echo recaptcha_get_html($publickey, null, 1);
                 }
 
                 public static function verify_recaptcha($user_ip, $recaptcha_challenge_field, $recaptcha_response_field)
