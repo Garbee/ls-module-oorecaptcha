@@ -3,8 +3,8 @@ ls-module-oorecaptcha
 
 To use:
 1. Go to: oorecaptcha/settings/ in your backend and set the public and private key.
-1. Set your form to use a custom ajax handler.
-1. Within that handler, have the following code, replacing "NORMAL EVENT HANDLER" in the response check with the regular action that should be executed on form submission.
+2. Set your form to use a custom ajax handler.
+3. Within that handler, have the following code, replacing "NORMAL EVENT HANDLER" in the response check with the regular action that should be executed on form submission.
 ```
     $recaptcha_challenge_field = $_POST["recaptcha_challenge_field"];
     $recaptcha_response_field = $_POST["recaptcha_response_field"];
