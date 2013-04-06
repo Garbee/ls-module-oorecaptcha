@@ -9,11 +9,16 @@
                                 "Jonathan Garbee" );
                 }
 
-                public static function create_recaptcha()
+                public static function create_recaptcha( $options = array() )
                 {
+
+                        $options = array_merge(array(
+                                'use_ssl' => true,
+                        ), $options);
+
                         require_once('vendor/recaptchalib.php');
                         $publickey = ooRecaptcha_Config::create()->public_key;
-                        echo recaptcha_get_html($publickey, null, 1);
+                        echo recaptcha_get_html($publickey, null, $options['use_ssl']);
                 }
 
                 public static function verify_recaptcha($user_ip, $recaptcha_challenge_field, $recaptcha_response_field)
