@@ -24,4 +24,5 @@ To use:
     }
 ```
 Some notes:
+
 * On a failure, you should refresh the recaptcha somehow. Each recaptcha can only be attempted once, any attempts beyond that fail outright.
