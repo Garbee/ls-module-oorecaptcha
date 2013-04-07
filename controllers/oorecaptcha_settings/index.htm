@@ -1,11 +1,12 @@
 <? Phpr_View::begin_block('view') ?>
     <? if(!isset($fatalError)): ?>
         <div class="form-300">
-            <?= Phpr_Form::openTag() ?>
-                <? $this->form_render($form_model) ?>
-
-                <?= backend_ajax_button('Save', 'index_onSave') ?>
-                <?= backend_button('Cancel', url('system/settings')) ?>
+            <?= 
+                Phpr_Form::openTag();
+                $this->form_render($form_model); 
+                echo backend_ajax_button('Save', 'index_onSave');
+                echo backend_button('Cancel', url('system/settings'));
+            ?>
                 <div class="clear"></div>
             <?= Phpr_Form::close_tag() ?>
         </div>
