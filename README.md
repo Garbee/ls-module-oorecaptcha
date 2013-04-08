@@ -5,8 +5,9 @@ To use:
 
 1. Get an API key pair from [Recaptcha](http://www.google.com/recaptcha) for your sites domain.
 2. Go to: oorecaptcha/settings/ in your backend and set the public and private key that you were given.
-3. Set your form to use a custom ajax handler.
-4. Within that handler, have the following code, replacing "NORMAL EVENT HANDLER" in the response check with the regular action that should be executed on form submission.
+3. In your form insert: ```<?php echo ooRecaptcha_Module::create_recaptcha(); ?>``` to create a captcha.
+4. Set your form to use a custom ajax handler.
+5. Within that handler, have the following code, replacing "NORMAL EVENT HANDLER" in the response check with the regular action that should be executed on form submission.
 ```
     $recaptcha_challenge_field = post('recaptcha_challenge_field');
     $recaptcha_response_field = post('recaptcha_response_field');
@@ -16,13 +17,14 @@ To use:
 
     if (!$recaptcha_response->is_valid)
     {
-        throw new Phpr_ApplicationException("The reCAPTCHA wasn't entered correctly. Go back and try it again." . "(reCAPTCHA said: " . $resp->error . ")");
+        throw new Phpr_ApplicationException("The reCAPTCHA wasn't entered correctly. Go back and try it again." . "(reCAPTCHA said: " . $recaptcha_response->error . ")");
     }
     else
     {
         $controller->exec_action_handler('NORMAL EVENT HANDLER');
     }
 ```
+
 Some notes:
 
-* On a failure, you should refresh the recaptcha somehow. Each recaptcha can only be attempted once, any attempts beyond that fail outright.
+* On a failure, you should refresh the recaptcha using ```Recaptcha.reload``` using [LemonStands onFailure event](http://lemonstand.com/docs/lemonstand_front_end_javascript_framework/). Each recaptcha can only be attempted once, any attempts beyond that fail outright.
