@@ -31,5 +31,5 @@ Some notes:
 
 
 ### To use mailhide
-1. Setup your configuration under the settings page with (mailhide API keys)[http://www.google.com/recaptcha/mailhide/].
+1. Setup your configuration under the settings page with [mailhide API keys](http://www.google.com/recaptcha/mailhide/).
 2. Just use ```<?php echo ooRecaptcha_Module::mailhide('email@example.com'); ?>```
