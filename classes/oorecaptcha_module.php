@@ -28,6 +28,14 @@
                         return $resp;
                 }
 
+                public static function mailhide($email)
+                {
+                        require_once('vendor/recaptchalib.php');
+                        $mailhide_pubkey = ooRecaptcha_Config::create()->mailhide_pubkey;
+                        $mailhide_privkey = ooRecaptcha_Config::create()->mailhide_privkey;
+                        return recaptcha_mailhide_html($mailhide_pubkey, $mailhide_privkey, $email);
+                }
+
                 public function listSettingsItems()
                 {
                         return array(
