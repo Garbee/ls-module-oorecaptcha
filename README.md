@@ -1,7 +1,7 @@
 ls-module-oorecaptcha
 =====================
 
-To use:
+### To use regular recaptcha:
 
 1. Get an API key pair from [Recaptcha](http://www.google.com/recaptcha) for your sites domain.
 2. Go to: oorecaptcha/settings/ in your backend and set the public and private key that you were given.
@@ -28,3 +28,8 @@ To use:
 Some notes:
 
 * On a failure, you should refresh the recaptcha using ```Recaptcha.reload``` using [LemonStands onFailure event](http://lemonstand.com/docs/lemonstand_front_end_javascript_framework/). Each recaptcha can only be attempted once, any attempts beyond that fail outright.
+
+
+### To use mailhide
+1. Setup your configuration under the settings page with (mailhide API keys)[http://www.google.com/recaptcha/mailhide/].
+2. Just use ```<?php echo ooRecaptcha_Module::mailhide('email@example.com'); ?>```
